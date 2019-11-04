@@ -8,11 +8,11 @@ def result(Vx, Vy, Vz, X, Y, Z, d):
     print("(" + format(Vx, '.2f') + ", " + format(Vy, '.2f') + ", " + format(Vz, '.2f') + ")")
     print("At time t + 4, ball coordinates will be:")
     print("(" + format(X, '.2f') + ", " + format(Y, '.2f') + ", " + format(Z, '.2f') + ")")
-    if ():
-        print("The ball won't reach the paddle.")
-    else:
-        print("The incidence angle is:")
-        print(format(d, '.2f') + " degrees")
+#    if ():
+#        print("The ball won't reach the paddle.")
+#    else:
+    print("The incidence angle is:")
+    print(format(d, '.2f') + " degrees")
 
 def var_d(av):
     x0 = float(av[1])
@@ -31,7 +31,7 @@ def calcul(x0, x1, y0, y1, z0, z1, n):
     X = Vx * n + x1
     Y = Vy * n + y1
     Z = Vz * n + z1
-    d = 0
+    d = float((Vx+Vy+Vz)/math.sqrt((x0*x0+y0*y0+z0*z0)(x1*x1+y1*y1+z1*z1)))
     result(Vx, Vy, Vz, X, Y, Z, d)
 
 def main():
