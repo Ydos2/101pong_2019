@@ -3,6 +3,19 @@
 import sys
 import math
 
+def h():
+    print("USAGE")
+    print("    ./101pong x0 y0 z0 x1 y1 z1 n")
+    print("")
+    print("DESCRIPTION")
+    print("    x0 ball abscissa at time t - 1")
+    print("    y0 ball ordinate at time t - 1")
+    print("    z0 ball altitude at time t - 1")
+    print("    x1 ball abscissa at time t")
+    print("    y1 ball ordinate at time t")
+    print("    z1 ball altitude at time t")
+    print("    n  time shift (greater than or equal to zero, integer)")
+
 def result(Vx, Vy, Vz, X, Y, Z, ta):
     print("The velocity vector of the ball is:")
     print("(" + format(Vx, '.2f') + ", " + format(Vy, '.2f') + ", " + format(Vz, '.2f') + ")")
@@ -37,7 +50,10 @@ def calcul(x0, x1, y0, y1, z0, z1, n):
 
 def main():
     av = sys.argv
-    var_d(av)
+    if (av[1] == "-h"):
+        h()
+    else:
+        var_d(av)
 
 if __name__ == "__main__":
     main()
