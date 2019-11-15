@@ -41,6 +41,12 @@ def var_d(av):
         print(err.args, file=sys.stderr)
         exit(84)
 
+def can_reach_paddle(Vz, z0, z1):
+    if (Vz == 0 or (z0 < 0 and z1 > 0) or (z0 > 0 and z1 < 0)):
+        return(0)
+    else:
+        return(1)
+
 def calcul(x0, x1, y0, y1, z0, z1, n):
     Vx = x1 - x0
     Vy = y1 - y0
@@ -48,11 +54,7 @@ def calcul(x0, x1, y0, y1, z0, z1, n):
     X = Vx * n + x1
     Y = Vy * n + y1
     Z = Vz * n + z1
-    if (z1 >= 0):
-        if ((z1 + Z) < 0):
-            time = 1
-    else:
-        time = 0
+    time = can_reach_paddle(Vz, z0, z1)
     if (n < 0):
         exit(84)
     t = math.sqrt(math.pow(Vx, 2) + math.pow(Vy, 2) + math.pow(abs(Vz), 2))
